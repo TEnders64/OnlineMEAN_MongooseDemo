@@ -7,6 +7,6 @@
   <p><input type="submit" value="Create User"></p>
 </form>
 <% for (var i = 0; i < users.length; i++){ %>
-  <p>Name: <%= users[i].name %></p>
+  <p>Name: <a href="/users/<%= users[i]._id %>"><%= users[i].name %></a></p>
   <p>Age: <%= users[i].age %></p>
 <% } %>

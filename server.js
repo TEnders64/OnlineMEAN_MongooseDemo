@@ -39,4 +39,26 @@ app.post('/users', function(req, res){
   });
 });
 
+
+app.get('/users/:id', function(req, res){
+  User.findOne({_id: req.params.id}, function(err, user){
+    if (err){
+      console.log(err);
+    }else{
+      res.render('show', {user: user});
+    }
+  });
+});
+
+app.get('/users/:id/delete', function(req, res){
+  User.findByIdAndRemove(req.params.id, function(err, user){
+    if (err){
+      console.log(err);
+    }else{
+      console.log('removed this user:', user);
+      res.redirect('/');
+    }
+  });
+});
+
 app.listen(6789);
