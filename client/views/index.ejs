@@ -1,0 +1,12 @@
+<h1>My Mongoose User Demo</h1>
+<hr>
+<h4>Create a User</h4>
+<form action="/users" method="post">
+  <p>Name: <input type="text" name="name"></p>
+  <p>Age: <input type="number" name="age" min="0" step="1"></p>
+  <p><input type="submit" value="Create User"></p>
+</form>
+<% for (var i = 0; i < users.length; i++){ %>
+  <p>Name: <%= users[i].name %></p>
+  <p>Age: <%= users[i].age %></p>
+<% } %>
