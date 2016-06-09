@@ -9,4 +9,21 @@
 <% for (var i = 0; i < users.length; i++){ %>
   <p>Name: <a href="/users/<%= users[i]._id %>"><%= users[i].name %></a></p>
   <p>Age: <%= users[i].age %></p>
+  <p>Cards:</p>
+  <% for (var j = 0; j < users[i].cards.length; j++){ %>
+    <p>Type: <%= users[i].cards[j].type %></p>
+    <p>Number: <%= users[i].cards[j].cc_num %></p>
+  <% } %>
+  <form action="/users/<%= users[i]._id %>/addCard" method="post">
+    <p>CC Number: <input type="number" name="cc_num" min='0' step='1'></p>
+    <p>
+      <select name="type">
+        <option disabled selected value> -- select an option -- </option>
+        <option>Mastercard</option>
+        <option>Visa</option>
+        <option>Discover</option>
+      </select>
+    </p>
+    <input type="submit" value="Add Card">
+  </form>
 <% } %>
